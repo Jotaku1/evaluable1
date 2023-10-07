@@ -1,0 +1,51 @@
+<<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+    <style>
+		table {
+			border-collapse: collapse;
+			margin: 0 auto;
+			/* Margen automático para centrar horizontalmente */
+
+		}
+
+		td,
+		th {
+			border: 1px solid darkgray;
+			padding: 8px;
+			text-align: center;
+		}
+	</style>
+</head>
+<br>
+<h1 th:text="${tituloH1}"></h1> 
+
+</br>
+<a th:href="@{/home}">HOME</a>
+
+<table th:if="${listadoAsignatura.size() !=0}">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nombre</td>
+			<td>Descripción</td>
+			<td>Tipo</td>
+			<td>NumeroCreditos</td>
+		    <td>NumeroDeAlumnosMatriculados</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="asignatura : ${listadoAsignatura}">
+			<td th:text="${asignatura.id}"></td>
+			<td th:text="${asignatura.nombre}"></td>
+			<td th:text="${asignatura.descripcion}"></td>
+			<td th:text="${asignatura.tipo}"></td>
+			<td th:text="${asignatura.numeroCreditos}"></td>
+			<td th:text="${asignatura.numeroDeAlumnosMatriculados}"></td>
+		</tr>
+    </tbody>
+</table>
+</body>
+</html>
